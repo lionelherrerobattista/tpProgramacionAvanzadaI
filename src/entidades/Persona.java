@@ -14,6 +14,10 @@ public class Persona {
 	@Columna(nombre="apellido")
 	private String apellido;
 	
+	public Persona() {
+		
+	}
+	
 	public Persona(Long id, String nombre, String apellido) {
 		super();
 		this.id = id;
@@ -43,6 +47,11 @@ public class Persona {
 
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + "]";
 	}
 	
 	

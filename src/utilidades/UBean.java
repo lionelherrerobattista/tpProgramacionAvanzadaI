@@ -53,7 +53,7 @@ public class UBean {
 				//Buscar el 1° parametro
 				Object[] params = new Object[1]; 
 				
-				params[1] = valor;
+				params[0] = valor;
 				
 				//Invocar el método con el parámetro que se recibe
 				try {
