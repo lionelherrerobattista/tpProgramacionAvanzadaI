@@ -52,7 +52,7 @@ public class Consultas {
 			
 		//Activar conexión
 		//TODO hacer método para ejecutar consulta
-		UConexion uConexion = new UConexion();
+		UConexion uConexion = UConexion.getInstance();
 		try {
 			uConexion.abrirConexion();
 			Connection connection = uConexion.getConnection();
@@ -98,7 +98,7 @@ public class Consultas {
 		//Terminar la consulta
 		consulta += " where id=" + id;
 		
-		UConexion uConexion = new UConexion();
+		UConexion uConexion = UConexion.getInstance();
 		try {
 			uConexion.abrirConexion();
 			Connection connection = uConexion.getConnection();
@@ -141,7 +141,7 @@ public class Consultas {
 		//Terminar la consulta
 		consulta += "where id=" + id;
 		
-		UConexion uConexion = new UConexion();
+		UConexion uConexion = UConexion.getInstance();
 		try {
 			uConexion.abrirConexion();
 			Connection connection = uConexion.getConnection();
@@ -199,7 +199,7 @@ public class Consultas {
 		//Terminar la consulta
 		consulta += "where id=" + id;
 		
-		UConexion uConexion = new UConexion();
+		UConexion uConexion = UConexion.getInstance();
 		try {
 			uConexion.abrirConexion();
 			Connection connection = uConexion.getConnection();
@@ -235,12 +235,7 @@ public class Consultas {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
-		return objeto;
-		
+			
+		return objeto;		
 	}
 }
