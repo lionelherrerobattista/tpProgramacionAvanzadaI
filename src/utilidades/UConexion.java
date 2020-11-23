@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class UConexion {
 
-	private static UConexion uConexion; //Para guardar la instancia
+	private static UConexion uConexion;
 	private Connection connection;
 	private String driver;
 	private String pathConexion;
@@ -26,21 +26,17 @@ public class UConexion {
 		
 	}
 	
-
 	public Connection getConnection() {
 		return connection;
 	}
-
 
 	public void setConnection(Connection connection) {
 		this.connection = connection;
 	}
 	
-	
-	//Genero adentro de un método la única instancia de la clase
+
 	public static UConexion getInstance() {
 		
-		//If para que sea solo 1 instancia
 		if(uConexion == null) {
 			uConexion = new UConexion();	
 		}
@@ -64,7 +60,11 @@ public class UConexion {
 	public void cerrarConexion() throws SQLException {
 		this.connection.close();
 	}
-	
+
+	/**
+	 * Función que lee el archivo framework.properties
+	 * @param f archivo de configuraciones
+	 */
 	public void read(File f) {
 		List<String> listaDatos = new ArrayList<>();
 		Map<String, String> config = new HashMap<>(); 
@@ -82,9 +82,9 @@ public class UConexion {
 				linea = br.readLine();
 			}
 			
-			br.close();//siempre forzar que se cierre el archivo
-			String[] array;
+			br.close();
 			
+			//Armar diccionario con las config
 			for(String dato:listaDatos) {
 				if(dato.split("=").length > 1) {
 					config.put(dato.split("=")[0], dato.split("=")[1]);	
@@ -94,13 +94,13 @@ public class UConexion {
 				
 			}
 			
+			//Cargar las config
 			this.driver = config.get("driver");
 			this.pathConexion = config.get("pathConexion");
 			this.usuario = config.get("usuario");
 			this.pass = config.get("pass");
 					
 		} catch (FileNotFoundException e) {
-			
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
